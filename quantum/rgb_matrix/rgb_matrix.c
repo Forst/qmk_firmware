@@ -242,6 +242,12 @@ void rgb_matrix_handle_key_event(uint8_t row, uint8_t col, bool pressed) {
         }
     }
 #endif // defined(RGB_MATRIX_FRAMEBUFFER_EFFECTS) && defined(ENABLE_RGB_MATRIX_TYPING_HEATMAP)
+
+#if defined(RGB_MATRIX_CUSTOM_USER)
+    if (rgb_matrix_config.mode == RGB_MATRIX_CUSTOM_TYPING_HEATMAP_NOFB) {
+        process_rgb_matrix_custom_typing_heatmap_nofb(row, col);
+    }
+#endif // defined(RGB_MATRIX_CUSTOM_USER)
 }
 
 void rgb_matrix_test(void) {
