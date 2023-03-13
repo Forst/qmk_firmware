@@ -3,19 +3,6 @@
 
 #pragma once
 
-#include "config_common.h"
-
-
-/* USB Device descriptor parameters */
-#define PRODUCT_ID 0x3435
-#define DEVICE_VER 0x0001
-
-#ifndef MANUFACTURER
-#define MANUFACTURER ssedrick
-#endif
-
-#define MATRIX_ROWS 10
-#define MATRIX_COLUMNS 5
 
 // Wiring pins
 #define MATRIX_ROW_PINS { F7, B1, B3, B2, B4 }
