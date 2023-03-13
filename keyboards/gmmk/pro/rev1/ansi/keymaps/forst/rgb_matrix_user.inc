@@ -18,7 +18,7 @@ static uint16_t heatmap_decrease_timer;
 // Whether we should decrement the heatmap values during the next update.
 static bool decrease_heatmap_values;
 // Intensity state per LED
-static uint8_t led_intensity_state[DRIVER_LED_TOTAL] = {0};
+static uint8_t led_intensity_state[RGB_MATRIX_LED_COUNT] = {0};
 
 static void process_rgb_matrix_custom_typing_heatmap_nofb(uint8_t row, uint8_t col) {
     uint8_t led_index = g_led_config.matrix_co[row][col];
@@ -26,7 +26,7 @@ static void process_rgb_matrix_custom_typing_heatmap_nofb(uint8_t row, uint8_t c
 
     led_point_t center = g_led_config.point[led_index];
 
-    for (uint8_t i = 0; i < DRIVER_LED_TOTAL; i++) {
+    for (uint8_t i = 0; i < RGB_MATRIX_LED_COUNT; i++) {
         led_point_t key = g_led_config.point[i];
 
         uint16_t dx = key.x > center.x ? sub8(key.x, center.x) : sub8(center.x, key.x);
@@ -76,7 +76,7 @@ static bool TYPING_HEATMAP_NOFB(effect_params_t* params) {
         }
     }
 
-    return led_max < DRIVER_LED_TOTAL;
+    return led_max < RGB_MATRIX_LED_COUNT;
 }
 
 #endif // RGB_MATRIX_CUSTOM_EFFECT_IMPLS

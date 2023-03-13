@@ -17,7 +17,7 @@ enum {
     enum {
         TD_END_HOME,
     };
-    qk_tap_dance_action_t tap_dance_actions[] = {
+    tap_dance_action_t tap_dance_actions[] = {
         [TD_END_HOME] = ACTION_TAP_DANCE_DOUBLE(KC_END, KC_HOME),
     };
 
@@ -135,7 +135,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
         }
     #endif // RAW_ENABLE
 
-    void rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
+    bool rgb_matrix_indicators_advanced_user(uint8_t led_min, uint8_t led_max) {
         if (layer_state_is(L_FUNC)) {
             // Sleep
             RGB_MATRIX_SET_HSV_OBEY_BRIGHTNESS(PIN_ESC, HSV_PURPLE);
@@ -204,5 +204,7 @@ const uint16_t PROGMEM keymaps[][MATRIX_ROWS][MATRIX_COLS] = {
                 notification_timer = timer_read();
             }
         #endif // RAW_ENABLE
+
+        return false;
     }
 #endif // RGB_MATRIX_ENABLE
