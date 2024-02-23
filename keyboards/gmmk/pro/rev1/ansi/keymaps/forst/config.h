@@ -17,4 +17,4 @@
     #define TAPPING_TERM 175
 #endif
 
-#define DEBOUNCE 20
+#define DEBOUNCE 10
