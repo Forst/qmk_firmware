@@ -11,7 +11,7 @@ RGB_MATRIX_EFFECT(TYPING_HEATMAP_NOFB)
 #    endif
 
 static const uint8_t BASE_HUE = 180;
-static const uint8_t INCREASE_FACTOR = 32;
+static const uint8_t INCREASE_FACTOR = 16;
 
 // A timer to track the last time we decremented all heatmap values.
 static uint16_t heatmap_decrease_timer;
