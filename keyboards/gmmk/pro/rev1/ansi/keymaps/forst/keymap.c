@@ -28,16 +28,12 @@ enum {
 
 
 // Encoder
-#ifdef ENCODER_ENABLE
-    bool encoder_update_user(uint8_t index, bool clockwise) {
-        if (layer_state_is(L_FUNC)) {
-            tap_code(clockwise ? KC_BRIU : KC_BRID);
-        } else {
-            tap_code(clockwise ? KC_VOLU : KC_VOLD);
-        }
-        return false;
-    }
-#endif // ENCODER_ENABLE
+#if defined(ENCODER_MAP_ENABLE)
+    const uint16_t PROGMEM encoder_map[][NUM_ENCODERS][NUM_DIRECTIONS] = {
+    [L_LINUX] = { ENCODER_CCW_CW(KC_VOLD, KC_VOLU) },
+    [L_FUNC]  = { ENCODER_CCW_CW(KC_BRID, KC_BRIU) }
+};
+#endif
 
 
 // clang-format off
