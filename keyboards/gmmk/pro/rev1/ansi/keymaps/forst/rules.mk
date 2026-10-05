@@ -4,3 +4,4 @@ RAW_ENABLE = yes
 RGB_MATRIX_CUSTOM_USER = yes
 TAP_DANCE_ENABLE = yes
 ENCODER_MAP_ENABLE = yes
+DEBOUNCE_TYPE = asym_eager_defer_pk
